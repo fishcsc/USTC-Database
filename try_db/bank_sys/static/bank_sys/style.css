@@ -1,0 +1,23 @@
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: white url("images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    justify-content: center;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    color: black;
+}
