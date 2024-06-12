@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>{{ object }}</h1>
-  <p>密码: {{ object.password }}</p>
   <p>余额: {{ object.balance }}</p>
   <p>所属银行: {{ object.bank }}</p>
   <p>所属客户: {{ object.customer }}</p>
+  <p><a href="{% url 'bank_sys:deposit_list' %}?account_id={{ object.pk }}">存款管理</a></p>
+  <p><a href="{% url 'bank_sys:loan_list' %}?account_id={{ object.pk }}">贷款管理</a></p>
   <a href="{% url 'bank_sys:account_edit' object.pk %}">编辑</a>
   <form action="{% url 'bank_sys:account_delete' object.pk %}" method="post">
     {% csrf_token %}

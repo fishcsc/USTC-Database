@@ -3,7 +3,7 @@
   <h1>账户列表</h1>
   <ul>
     {% for account in object_list %}
-      <li><a href="{% url 'bank_sys:account_detail' account.pk %}">{{ account.id }}</a></li>
+      <li><a href="{% url 'bank_sys:account_password' account.pk %}">{{ account.id }}</a></li>
     {% endfor %}
   </ul>
   <a href="{% url 'bank_sys:account_add' %}">添加账户</a>

@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     CustomerListView, CustomerDetailView, CustomerCreateView, CustomerUpdateView, CustomerDeleteView,
     StaffListView, StaffDetailView, StaffCreateView, StaffUpdateView, StaffDeleteView,
-    AccountListView, AccountDetailView, AccountCreateView, AccountUpdateView, AccountDeleteView,
+    AccountListView, AccountDetailView, AccountCreateView, AccountUpdateView, AccountDeleteView,AccountPasswordView,
     DepositListView, DepositDetailView, DepositCreateView, DepositUpdateView, DepositDeleteView,
     LoanListView, LoanDetailView, LoanCreateView, LoanUpdateView, LoanDeleteView
 )
@@ -28,7 +28,8 @@ urlpatterns = [
 
     # Account URLs
     path('accounts/', AccountListView.as_view(), name='account_list'),
-    path('accounts/<int:pk>/', AccountDetailView.as_view(), name='account_detail'),
+    path('accounts/<int:pk>/', AccountPasswordView.as_view(), name='account_password'),
+    path('accounts/<int:pk>/detail/', AccountDetailView.as_view(), name='account_detail'),
     path('accounts/add/', AccountCreateView.as_view(), name='account_add'),
     path('accounts/<int:pk>/edit/', AccountUpdateView.as_view(), name='account_edit'),
     path('accounts/<int:pk>/delete/', AccountDeleteView.as_view(), name='account_delete'),
