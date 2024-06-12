@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ object }}</h1>
+  <p>密码: {{ object.password }}</p>
+  <p>余额: {{ object.balance }}</p>
+  <p>所属银行: {{ object.bank }}</p>
+  <p>所属客户: {{ object.customer }}</p>
+  <a href="{% url 'bank_sys:account_edit' object.pk %}">编辑</a>
+  <form action="{% url 'bank_sys:account_delete' object.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">删除</button>
+  </form>
+  <a href="{% url 'bank_sys:account_list' %}">返回列表</a>
+{% endblock %}

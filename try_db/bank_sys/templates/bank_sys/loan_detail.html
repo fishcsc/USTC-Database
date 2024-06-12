@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ object }}</h1>
+  <p>本金: {{ object.principal }}</p>
+  <p>利率: {{ object.interest_rate }}</p>
+  <p>贷款日期: {{ object.loan_date }}</p>
+  <p>所属账户: {{ object.account }}</p>
+  <a href="{% url 'bank_sys:loan_edit' object.pk %}">编辑</a>
+  <form action="{% url 'bank_sys:loan_delete' object.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">删除</button>
+  </form>
+  <a href="{% url 'bank_sys:loan_list' %}">返回列表</a>
+{% endblock %}

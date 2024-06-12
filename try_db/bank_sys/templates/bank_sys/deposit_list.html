@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>存款列表</h1>
+  <ul>
+    {% for deposit in object_list %}
+      <li><a href="{% url 'bank_sys:deposit_detail' deposit.pk %}">{{ deposit }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'bank_sys:deposit_add' %}">添加存款</a>
+{% endblock %}

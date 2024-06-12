@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>贷款列表</h1>
+  <ul>
+    {% for loan in object_list %}
+      <li><a href="{% url 'bank_sys:loan_detail' loan.pk %}">{{ loan }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'bank_sys:loan_add' %}">添加贷款</a>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>客户列表</h1>
+  <ul>
+    {% for customer in object_list %}
+      <li><a href="{% url 'bank_sys:customer_detail' customer.pk %}">{{ customer.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'bank_sys:customer_add' %}">添加新客户</a>
+{% endblock %}

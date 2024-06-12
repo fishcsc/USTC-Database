@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ object.name }}</h1>
+  <p>电话: {{ object.phone }}</p>
+  <p>地址: {{ object.address }}</p>
+  <a href="{% url 'bank_sys:customer_edit' object.pk %}">编辑</a>
+  <a href="{% url 'bank_sys:customer_delete' object.pk %}">删除</a>
+  <a href="{% url 'bank_sys:customer_list' %}">返回列表</a>
+{% endblock %}

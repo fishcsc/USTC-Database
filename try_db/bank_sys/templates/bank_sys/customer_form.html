@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{% if form.instance.pk %}编辑客户{% else %}添加客户{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">保存</button>
+  </form>
+  <a href="{% url 'bank_sys:customer_list' %}">取消</a>
+{% endblock %}

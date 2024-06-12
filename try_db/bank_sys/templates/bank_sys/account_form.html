@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{% if object %}编辑{% else %}添加{% endif %}账户</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">保存</button>
+  </form>
+  <a href="{% url 'bank_sys:account_list' %}">返回列表</a>
+{% endblock %}

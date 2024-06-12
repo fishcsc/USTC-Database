@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>员工列表</h1>
+  <ul>
+    {% for staff in object_list %}
+      <li><a href="{% url 'bank_sys:staff_detail' staff.pk %}">{{ staff.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'bank_sys:staff_add' %}">添加新员工</a>
+{% endblock %}

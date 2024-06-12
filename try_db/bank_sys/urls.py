@@ -1,34 +1,49 @@
-from pydoc import pager
 from django.urls import path
-
+from .views import (
+    CustomerListView, CustomerDetailView, CustomerCreateView, CustomerUpdateView, CustomerDeleteView,
+    StaffListView, StaffDetailView, StaffCreateView, StaffUpdateView, StaffDeleteView,
+    AccountListView, AccountDetailView, AccountCreateView, AccountUpdateView, AccountDeleteView,
+    DepositListView, DepositDetailView, DepositCreateView, DepositUpdateView, DepositDeleteView,
+    LoanListView, LoanDetailView, LoanCreateView, LoanUpdateView, LoanDeleteView
+)
 from . import views
 
 app_name = 'bank_sys'
 urlpatterns = [
     path('', views.home, name='home'),
 
-    path('clients', views.clients, name='clients_management'),
-    path('clients/add_client', views.add_client, name='add_client'),
-    path('clients/edit_client/<client_id>', views.edit_client, name="edit_client"),
-    path('clients/del_client/<client_id>', views.del_client, name="delete_client"),
-    # path('clients/contacts', views.view_contacts, name="view_contacts"),
-    path('clients/contacts/<client_id>', views.contacts, name="contacts"),
-    path('clients/add_contact/<client_id>', views.add_contact, name="add_contact"),
-    path('clients/del_contact/<client_id>/<contact_name>', views.del_contact, name="del_contact"),
-    path('clients/edit_contact/<client_id>/<contact_name>', views.edit_contact, name="edit_contact"),
+    # Customer URLs
+    path('customers/', CustomerListView.as_view(), name='customer_list'),
+    path('customers/<int:pk>/', CustomerDetailView.as_view(), name='customer_detail'),
+    path('customers/add/', CustomerCreateView.as_view(), name='customer_add'),
+    path('customers/<int:pk>/edit/', CustomerUpdateView.as_view(), name='customer_edit'),
+    path('customers/<int:pk>/delete/', CustomerDeleteView.as_view(), name='customer_delete'),
 
-    path('accounts', views.accounts, name='accounts_management'),
-    path('accounts/add_checking', views.add_checking, name="add_checking"),
-    path('accounts/add_savings', views.add_savings, name="add_savings"),
-    path('accounts/edit_account/<account_id>', views.edit_account, name="edit_account"),
-    path('accounts/del_account/<account_id>', views.del_account, name="delete_account"),
-    path('accounts/add_clienttoaccount/<account_id>/<account_type>', views.add_clienttoaccount, name="add_clienttoaccount"),
-    path('accounts/del_clienttoaccount/<account_id>/<client_id>', views.del_clienttoaccount, name="del_clienttoaccount"),
+    # Staff URLs
+    path('staff/', StaffListView.as_view(), name='staff_list'),
+    path('staff/<int:pk>/', StaffDetailView.as_view(), name='staff_detail'),
+    path('staff/add/', StaffCreateView.as_view(), name='staff_add'),
+    path('staff/<int:pk>/edit/', StaffUpdateView.as_view(), name='staff_edit'),
+    path('staff/<int:pk>/delete/', StaffDeleteView.as_view(), name='staff_delete'),
 
-    path('loans', views.loans, name='loans_management'),
-    path('loans/add_loan', views.add_loan, name="add_loan"),
-    path('loans/add_clientloan/<loan_id>', views.add_clientloan, name="add_clientloan"),
-    path('loans/payloan/<loan_id>', views.payloan, name="payloan"),
-    path('loans/del_loan/<loan_id>', views.del_loan, name="del_loan"),
-    path('statistics', views.statistics, name='business_statistics'),
+    # Account URLs
+    path('accounts/', AccountListView.as_view(), name='account_list'),
+    path('accounts/<int:pk>/', AccountDetailView.as_view(), name='account_detail'),
+    path('accounts/add/', AccountCreateView.as_view(), name='account_add'),
+    path('accounts/<int:pk>/edit/', AccountUpdateView.as_view(), name='account_edit'),
+    path('accounts/<int:pk>/delete/', AccountDeleteView.as_view(), name='account_delete'),
+
+    # Deposit URLs
+    path('deposits/', DepositListView.as_view(), name='deposit_list'),
+    path('deposits/<int:pk>/', DepositDetailView.as_view(), name='deposit_detail'),
+    path('deposits/add/', DepositCreateView.as_view(), name='deposit_add'),
+    path('deposits/<int:pk>/edit/', DepositUpdateView.as_view(), name='deposit_edit'),
+    path('deposits/<int:pk>/delete/', DepositDeleteView.as_view(), name='deposit_delete'),
+
+    # Loan URLs
+    path('loans/', LoanListView.as_view(), name='loan_list'),
+    path('loans/<int:pk>/', LoanDetailView.as_view(), name='loan_detail'),
+    path('loans/add/', LoanCreateView.as_view(), name='loan_add'),
+    path('loans/<int:pk>/edit/', LoanUpdateView.as_view(), name='loan_edit'),
+    path('loans/<int:pk>/delete/', LoanDeleteView.as_view(), name='loan_delete'),
 ]
