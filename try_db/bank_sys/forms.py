@@ -4,7 +4,9 @@ from .models import Customer, Staff, Account, Deposit, Loan
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
-        fields = ['name', 'phone', 'address']
+        fields = ['name', 'phone', 'address', 'image']
+
+    image = forms.ImageField(label='上传图片')
 
 class StaffForm(forms.ModelForm):
     class Meta:

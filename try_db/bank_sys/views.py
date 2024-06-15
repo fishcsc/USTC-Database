@@ -150,18 +150,18 @@ class DepositCreateView(CreateView):
     model = Deposit
     form_class = DepositForm
     template_name = 'bank_sys/deposit_form.html'
-    success_url = reverse_lazy('bank_sys:deposit_list')
+    success_url = reverse_lazy('bank_sys:account_list')
 
 class DepositUpdateView(UpdateView):
     model = Deposit
     form_class = DepositForm
     template_name = 'bank_sys/deposit_form.html'
-    success_url = reverse_lazy('bank_sys:deposit_list')
+    success_url = reverse_lazy('bank_sys:account_list')
 
 class DepositDeleteView(DeleteView):
     model = Deposit
     template_name = 'bank_sys/deposit_confirm_delete.html'
-    success_url = reverse_lazy('bank_sys:deposit_list')
+    success_url = reverse_lazy('bank_sys:account_list')
 
 # Loan Views
 class LoanListView(ListView):
@@ -186,15 +186,30 @@ class LoanCreateView(CreateView):
     model = Loan
     form_class = LoanForm
     template_name = 'bank_sys/loan_form.html'
-    success_url = reverse_lazy('bank_sys:loan_list')
+    success_url = reverse_lazy('bank_sys:account_list')
 
 class LoanUpdateView(UpdateView):
     model = Loan
     form_class = LoanForm
     template_name = 'bank_sys/loan_form.html'
-    success_url = reverse_lazy('bank_sys:loan_list')
+    success_url = reverse_lazy('bank_sys:account_list')
 
 class LoanDeleteView(DeleteView):
     model = Loan
     template_name = 'bank_sys/loan_confirm_delete.html'
-    success_url = reverse_lazy('bank_sys:loan_list')
+    success_url = reverse_lazy('bank_sys:account_list')
+
+
+def calculate_interest(request):
+    # 调用数据库函数
+    deposit_principal = float(request.GET.get('deposit_principal'))
+    deposit_interest_rate = float(request.GET.get('deposit_interest_rate'))
+    deposit_interest = calculate_interest_function(deposit_principal, deposit_interest_rate)
+    
+    # 将结果传递给模板
+    return render(request, 'bank_sys/interest_template.html', {'deposit_interest': deposit_interest})
+
+def calculate_interest_function(deposit_principal, deposit_interest_rate):
+    # 实现你的数据库函数逻辑
+    deposit_interest = deposit_principal * (deposit_interest_rate / 100)
+    return deposit_interest

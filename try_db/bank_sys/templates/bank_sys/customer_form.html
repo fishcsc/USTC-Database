@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>{% if form.instance.pk %}编辑客户{% else %}添加客户{% endif %}</h1>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if form.instance.pk and form.instance.image %}
+      <p>当前图片:</p>
+      <img src="{{ form.instance.image.url }}" alt="{{ form.instance.name }}的图片" style="max-width: 50px; max-height: 50px;">
+    {% endif %}
     <button type="submit">保存</button>
   </form>
   <a href="{% url 'bank_sys:customer_list' %}">取消</a>

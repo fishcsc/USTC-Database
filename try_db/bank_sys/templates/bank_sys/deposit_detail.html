@@ -10,5 +10,6 @@
     {% csrf_token %}
     <button type="submit">删除</button>
   </form>
+  <a href="{% url 'bank_sys:calculate_interest' %}?deposit_principal={{ object.principal }}&deposit_interest_rate={{ object.interest_rate }}">计算利息</a>
   <a href="{% url 'bank_sys:deposit_list' %}">返回列表</a>
 {% endblock %}

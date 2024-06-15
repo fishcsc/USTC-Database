@@ -7,10 +7,16 @@ from .views import (
     LoanListView, LoanDetailView, LoanCreateView, LoanUpdateView, LoanDeleteView
 )
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf import settings
+from django.urls import re_path
+from django.views.static import serve
 
 app_name = 'bank_sys'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('calculate_interest/', views.calculate_interest, name='calculate_interest'),
 
     # Customer URLs
     path('customers/', CustomerListView.as_view(), name='customer_list'),
@@ -41,6 +47,7 @@ urlpatterns = [
     path('deposits/<int:pk>/edit/', DepositUpdateView.as_view(), name='deposit_edit'),
     path('deposits/<int:pk>/delete/', DepositDeleteView.as_view(), name='deposit_delete'),
 
+    # path('customers/<int:pk>/upload-image/', views.CustomerUploadImageView.as_view(), name='customer_upload_image'),
     # Loan URLs
     path('loans/', LoanListView.as_view(), name='loan_list'),
     path('loans/<int:pk>/', LoanDetailView.as_view(), name='loan_detail'),
@@ -48,3 +55,5 @@ urlpatterns = [
     path('loans/<int:pk>/edit/', LoanUpdateView.as_view(), name='loan_edit'),
     path('loans/<int:pk>/delete/', LoanDeleteView.as_view(), name='loan_delete'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

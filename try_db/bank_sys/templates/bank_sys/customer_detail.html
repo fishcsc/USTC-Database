@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>{{ object.name }}</h1>
+  {% if object.image %}
+    <img src="{{ object.image.url }}" alt="{{ object.name }}图片" style="max-width: 150px; max-height: 150px;">
+  {% endif %}
   <p>电话: {{ object.phone }}</p>
   <p>地址: {{ object.address }}</p>
   <a href="{% url 'bank_sys:customer_edit' object.pk %}">编辑</a>
