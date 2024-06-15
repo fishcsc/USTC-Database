@@ -161,7 +161,7 @@ DELIMITER ;
 ### Part#3 功能测试
 
 #### a) 截图展示
-详情见报告
+图片太大 qaq
 
 #### b) 仓库地址
 - [链接](https://github.com/fishcsc/USTC-Database)
