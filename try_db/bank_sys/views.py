@@ -174,9 +174,9 @@ class LoanListView(ListView):
         
         # 如果存在 account_id 参数，则只返回该账户的存款记录，否则返回全部存款记录
         if account_id:
-            return Deposit.objects.filter(account_id=account_id)
+            return Loan.objects.filter(account_id=account_id)
         else:
-            return Deposit.objects.all()
+            return Loan.objects.all()
 
 class LoanDetailView(DetailView):
     model = Loan

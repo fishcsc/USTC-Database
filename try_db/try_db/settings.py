@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'try_db.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {          # 注意，按照自己数据库的信息配置
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "bank2",
         "USER": "csc",
-        "PASSWORD": "csc918",
+        "PASSWORD": "123456",    
         "HOST": "localhost",
         "PORT": "3306",
     }
