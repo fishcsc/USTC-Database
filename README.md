@@ -161,53 +161,7 @@ DELIMITER ;
 ### Part#3 功能测试
 
 #### a) 截图展示
-
-*1.主界面*
-- 包括三个板块
-![[Pasted image 20240615202748.png]]
-
-*2.以员工为例展示增删改查*
-
-- 初始时
-![[Pasted image 20240615203040.png]]
-
-- 增（增加李想）
-![[Pasted image 20240615203255.png]]
-![[Pasted image 20240615203315.png]]
-
-- 查（查看李想信息）
-![[Pasted image 20240615203357.png]]
-
-- 改（李想变成高级）
-![[Pasted image 20240615203516.png]]
-![[Pasted image 20240615203659.png]]
-
-- 删（删除李想）
-![[Pasted image 20240615203748.png]]
-![[Pasted image 20240615203818.png]]
-
-*3.利息计算*
-- 输入密码，进入自己的账户（假设账户号为1）
-![[Pasted image 20240615204134.png]]
-![[Pasted image 20240615204216.png]]
-![[Pasted image 20240615204303.png]]
-
-- 查看自己的存款（假设查看编号为1的存款 ）
-![[Pasted image 20240615204341.png]]
-![[Pasted image 20240615204459.png]]
-- 点击计算利息（利息 = 本金 * 利率）
-![[Pasted image 20240615204616.png]]
-
-
-*4.图片管理*
-- 进入客户管理（查看陈世初）
-![[Pasted image 20240615204725.png]]
-![[Pasted image 20240615204810.png]]
-
-- 编辑客户，修改图片
-![[Pasted image 20240615204913.png]]
-- 展示修改后
-![[Pasted image 20240615205001.png]]
+详情见报告
 
 #### b) 仓库地址
 - [链接](https://github.com/fishcsc/USTC-Database)
